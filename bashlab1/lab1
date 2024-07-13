@@ -1,0 +1,51 @@
+#! /usr/bin/bash
+
+
+# awk -F: '
+#     {
+#         if($3 = 500)
+#             print NR ":" $1 ", ", " $3 ", " $5 "
+#     }' /etc/passwd
+
+
+
+
+# awk -F: '
+#         NR >= 5 && NR<15' /etc/passwd
+
+
+# awk -F: 'BEGIN{i=1; FS=":"}
+# {
+#     i=1
+#     while (i <= NF){
+#         if ($i == "lp"){
+#             $i="mylp"
+#         }
+#         i++;
+#     }
+#     print $0
+# }
+# END {}' /etc/passwd
+
+
+
+
+
+
+# awk 'BEGAIN {FS=":"; max=0}
+# {
+#     if ($3 > max) {
+#         max = $3
+#     }
+# }
+# END {print " Max ID is " max}' /etc/passwd
+
+
+
+
+
+awk 'BEGAIN {FS=":"; sum=0}
+{
+    sum += $3;
+}
+END {print " sum ID is " sum}' /etc/passwd
